@@ -1,68 +1,59 @@
- @-webkit-keyframes puff-in-center {
-   0% {
-     -webkit-transform: scale(2);
-     transform: scale(2);
-     -webkit-filter: blur(4px);
-     filter: blur(4px);
-     opacity: 0;
-   }
-
-   100% {
-     -webkit-transform: scale(1);
-     transform: scale(1);
-     -webkit-filter: blur(0px);
-     filter: blur(0px);
-     opacity: 1;
-   }
- }
-
- @keyframes puff-in-center {
-   0% {
-     -webkit-transform: scale(2);
-     transform: scale(2);
-     -webkit-filter: blur(4px);
-     filter: blur(4px);
-     opacity: 0;
-   }
-
-   100% {
-     -webkit-transform: scale(1);
-     transform: scale(1);
-     -webkit-filter: blur(0px);
-     filter: blur(0px);
-     opacity: 1;
-   }
- }
+@-webkit-keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes puff-in-center {
+  0% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
 
 
- ion-content {
-   --background: radial-gradient(circle, rgb(82, 113, 255) 0%, rgb(17, 24, 55) 94%);
- }
+ion-content {
+  --background: radial-gradient(circle, rgb(82, 113, 255) 0%, rgb(17, 24, 55) 94%);
+}
 
- .container {
-   height: 100%;
+.container {
+  height: 100%;
 
-   -webkit-animation:
-     swirl-in-fwd 0.6s ease-in 1 normal forwards,
-     swirl-out-bck 0.6s ease-out 2.6s 1 normal forwards;
+  -webkit-animation: puff-in-center 0.6s ease-in 1 normal none;
+  animation: puff-in-center 0.6s ease-in 1 normal none;
 
-   animation:
-     swirl-in-fwd 0.6s ease-in 1 normal forwards,
-     swirl-out-bck 0.6s ease-out 2.6s 1 normal forwards;
+  ion-row {
+    height: 33%;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Bahnschrift condensed !important;
+    font-weight: 750 !important;
+    text-transform: uppercase;
+    color: #b2b5af !important;
 
-   ion-row {
-     height: 33%;
-     align-content: center;
-     justify-content: center;
-     text-align: center;
-     font-family: Bahnschrift condensed !important;
-     font-weight: 750 !important;
-     text-transform: uppercase;
-     color: #b2b5af !important;
-
-
-     img {
-       width: 150px;
-     }
-   }
- }
+    img {
+      width: 150px;
+    }
+  }
+}
