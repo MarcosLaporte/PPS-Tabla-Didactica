@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="ion-padding">
+    <ion-card-content class="ion-no-padding">
+      <div class="ion-margin-bottom">
+        <ion-text style="font-size: large;" color="medium">
+          <a (click)="navCtrl.navigateForward('/signup')">Cree una cuenta</a> si no está registrado.
+        </ion-text>
+      </div>
+
+      <ng-container expand="block" class="ion-text-center">
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="auto">
+            <ion-button color="success" (click)="quickFill('admin@admin.com', '111111')">
+              1
+            </ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button color="success" (click)="quickFill('invitado@invitado.com', '222222')">
+              2
+            </ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button color="success" (click)="quickFill('usuario@usuario.com', '333333')">
+              3
+            </ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button color="success" (click)="quickFill('anonimo@anonimo.com', '444444')">
+              4
+            </ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button color="success" (click)="quickFill('tester@tester.com', '555555')">
+              5
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+
+      <form #loginForm="ngForm">
+        <ion-button expand="block" [disabled]="!loginForm.valid" color="warning" (click)="login()">
+          Ingresar
+        </ion-button>
+        <ion-item>
+          <ion-input label="Contraseña" [clearOnEdit]="false" labelPlacement="stacked"
+            helperText="Entre 6 y 20 caracteres." type="password" [(ngModel)]="password" name="password" required>
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Correo electrónico" [clearInput]="true" labelPlacement="stacked"
+            placeholder="tucorreo@ejemplo.com" type="email" errorText="Correo inválido" [(ngModel)]="email" name="email"
+            required></ion-input>
+        </ion-item>
+      </form>
+    </ion-card-content>
+    <img src="../../assets/login.png" width="100%">
+  </ion-card>
+</ion-content>
