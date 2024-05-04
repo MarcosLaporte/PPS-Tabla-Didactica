@@ -33,6 +33,7 @@ export class SignupPage {
     }
     return true;
   }
+  getTypeColor = (type: UserType) => type === this.type ? `success` : `light`;
 
   async signup() {
     this.spinner.show();

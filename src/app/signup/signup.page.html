@@ -4,9 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<div class="container bg-img">
   <ion-card>
-    <img src="../../assets/login.png" width="80%">
+    <img src="../../assets/login.png" width="65%">
     <ion-card-content>
       <div class="ion-margin-top">
         <ion-text style="font-size: large;" color="medium">
@@ -15,7 +15,7 @@
       </div>
 
       <form #signupForm="ngForm">
-        <ion-button expand="block" color="warning" [disabled]="!signupForm.valid" (click)="signup()">
+        <ion-button expand="block" color="warning" shape="round" [disabled]="!signupForm.valid" (click)="signup()">
           Registrar
         </ion-button>
 
@@ -63,28 +63,58 @@
               </ion-item>
             </ion-col>
           </ion-row>
+
           <ion-row>
             <ion-col>
               <ion-radio-group class="type-group" [(ngModel)]="this.type" name="type" required>
-                <ion-item><ion-radio value='admin' justify="space-between">ADMIN</ion-radio></ion-item>
-                <ion-item><ion-radio value='tester' justify="space-between">TESTER</ion-radio></ion-item>
-                <ion-item><ion-radio value='invitado' justify="space-between">INVITADO</ion-radio></ion-item>
-                <ion-item><ion-radio value='usuario' justify="space-between">USUARIO</ion-radio></ion-item>
-              </ion-radio-group>
-            </ion-col>
-            <ion-col style="border-left: grey 1px solid;" size="auto">
-              <ion-radio-group class="gender-group" [(ngModel)]="this.gender" name="gender" required>
-                <ion-item>
-                  <ion-radio value="femenino" aria-label="femenino">F</ion-radio>
+                <ion-item [color]="getTypeColor('admin')" (click)="type='admin'">
+                  <ion-radio labelPlacement="stacked" alignment="center" value='admin'>
+                    <div>
+                      <label>ADMIN</label>
+                      <img src="../../assets/admin.png" width="auto">
+                    </div>
+                  </ion-radio>
                 </ion-item>
-                <ion-item>
-                  <ion-radio value="masculino" aria-label="masculino">M</ion-radio>
+                <ion-item [color]="getTypeColor('tester')" (click)="type='tester'">
+                  <ion-radio labelPlacement="stacked" alignment="center" value='tester'>
+                    <div>
+                      <label>TESTER</label>
+                      <img src="../../assets/tester.png" width="auto">
+                    </div>
+                  </ion-radio>
+                </ion-item>
+                <ion-item [color]="getTypeColor('invitado')" (click)="type='invitado'">
+                  <ion-radio labelPlacement="stacked" alignment="center" value='invitado'>
+                    <div>
+                      <label>INVITADO</label>
+                      <img src="../../assets/guest.png" width="auto">
+                    </div>
+                  </ion-radio>
+                </ion-item>
+                <ion-item [color]="getTypeColor('usuario')" (click)="type='usuario'">
+                  <ion-radio labelPlacement="stacked" alignment="center" value='usuario'>
+                    <div>
+                      <label>USUARIO</label>
+                      <img src="../../assets/user.png" width="auto">
+                    </div>
+                  </ion-radio>
                 </ion-item>
               </ion-radio-group>
             </ion-col>
           </ion-row>
         </ion-grid>
+
+        <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+          <ion-fab-button [color]="gender==='femenino' ? 'success' : 'dark'" (click)="gender='femenino'">
+            <ion-icon name="female-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+        <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+          <ion-fab-button [color]="gender==='masculino' ? 'success' : 'dark'" (click)="gender='masculino'">
+            <ion-icon name="male-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
       </form>
     </ion-card-content>
   </ion-card>
-</ion-content>
+</div>

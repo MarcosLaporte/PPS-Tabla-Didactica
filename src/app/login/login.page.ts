@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { NavController } from '@ionic/angular';
 import { ToastError, ToastSuccess } from '../utils';
 import { SignupPage } from '../signup/signup.page';
-import { NgxSpinnerComponent, NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -38,8 +38,19 @@ export class LoginPage {
     }
   }
 
-  quickFill(email: string, pass: string) {
-    this.email = email;
-    this.password = pass;
+  quickUserNum: number = -1;
+  readonly quickUsers: { email: string, pass: string }[] = [
+    { email: 'admin@admin.com', pass: '111111' },
+    { email: 'invitado@invitado.com', pass: '222222' },
+    { email: 'usuario@usuario.com', pass: '333333' },
+    { email: 'anonimo@anonimo.com', pass: '444444' },
+    { email: 'tester@tester.com', pass: '555555' }
+  ];
+
+  quickFill() {
+    this.quickUserNum = this.quickUserNum >= 4 ? 0 : this.quickUserNum + 1;
+
+    this.email = this.quickUsers[this.quickUserNum].email;
+    this.password = this.quickUsers[this.quickUserNum].pass;
   }
 }

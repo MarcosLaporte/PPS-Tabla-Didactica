@@ -1,45 +1,87 @@
-ion-content ion-card {
-  height: -webkit-fill-available;
+.container {
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
 
-  img {
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-  }
-}
+  ion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-.gender-group {
-  ion-radio::part(container) {
-    width: 30px;
-    height: 30px;
+    >img {
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+    }
 
-    border-radius: 8px;
-    border: 2px solid #ddd;
-  }
+    .type-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
 
-  ion-radio::part(mark) {
-    background: none;
-    transition: none;
-    transform: none;
-    border-radius: 0;
-  }
+      ion-item {
+        width: 25%;
+        --padding-start: 0;
+        --padding-end: 0;
+        --inner-padding-bottom: 0;
+        --inner-padding-end: 0;
 
-  ion-radio.radio-checked::part(container) {
-    background: #6815ec;
-    border-color: transparent;
-  }
+        ion-radio {
+          margin-bottom: 0;
 
-  ion-radio.radio-checked::part(mark) {
-    width: 6px;
-    height: 10px;
+          >div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-    border-width: 0px 2px 2px 0px;
-    border-style: solid;
-    border-color: #fff;
+            label {
+              margin-bottom: 5px;
+            }
 
-    transform: rotate(45deg);
+            img {
+              width: 50px;
+            }
+          }
+        }
+
+        ion-radio::part(container) {
+          display: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+    /* .gender-group {
+      ion-radio::part(container) {
+        width: 30px;
+        height: 30px;
+
+        border-radius: 8px;
+        border: 2px solid #ddd;
+      }
+
+      ion-radio::part(mark) {
+        background: none;
+        transition: none;
+        transform: none;
+        border-radius: 0;
+      }
+
+      ion-radio.radio-checked::part(container) {
+        background: #6815ec;
+        border-color: transparent;
+      }
+
+      ion-radio.radio-checked::part(mark) {
+        width: 6px;
+        height: 10px;
+
+        border-width: 0px 2px 2px 0px;
+        border-style: solid;
+        border-color: #fff;
+
+        transform: rotate(45deg);
+      }
+    } */
   }
 }

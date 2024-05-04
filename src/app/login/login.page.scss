@@ -1,6 +1,10 @@
-ion-content ion-card {
-  height: -webkit-fill-available;
+.container {
+  height: 100%;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 }
