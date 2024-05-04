@@ -7,18 +7,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<div class="bg-img" style="height: 100%;">
   <div class="container">
     <ng-container *ngIf="userInSession; else noUser">
       To continue...
     </ng-container>
     <ng-template #noUser>
       <ion-card style="align-content: center;" class="ion-padding ion-margin">
-        <ion-card-title>Inicie sesión!</ion-card-title>
-        <ion-card-content>Para acceder a los contenidos, ingrese con su cuenta.</ion-card-content>
-        <ion-button expand="block" (click)="navCtrl.navigateBack('/login')">Ingrese a su cuenta</ion-button>
+        <ion-card-content class="ion-no-padding">Si quiere jugar, debe iniciar sesión.</ion-card-content>
+        <ion-button expand="block" size="large" color="warning" (click)="navCtrl.navigateBack('/login')">
+          Ingrese a su cuenta</ion-button>
+        <ion-card-title>No se ha iniciado sesión</ion-card-title>
       </ion-card>
     </ng-template>
   </div>
 
-</ion-content>
+</div>
