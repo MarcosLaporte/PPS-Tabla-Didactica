@@ -12,7 +12,7 @@ export class SplashPage {
     setTimeout(() => {
       const audio = new Audio('../../assets/sounds/correct.mp3');
       audio.play();
-    }, 1500);
+    }, 900);
 
     setTimeout(() => {
       navCtrl.navigateRoot('/login');
