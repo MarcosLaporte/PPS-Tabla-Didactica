@@ -1,36 +1,39 @@
-@-webkit-keyframes puff-in-center {
+@-webkit-keyframes puff-out-center {
   0% {
-    -webkit-transform: scale(2);
-    transform: scale(2);
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
-    opacity: 0;
-  }
-  100% {
     -webkit-transform: scale(1);
     transform: scale(1);
     -webkit-filter: blur(0px);
     filter: blur(0px);
     opacity: 1;
   }
-}
-@keyframes puff-in-center {
-  0% {
-    -webkit-transform: scale(2);
-    transform: scale(2);
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
 
+  100% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes puff-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+    display: none;
+  }
+}
 
 ion-content {
   --background: radial-gradient(circle, rgb(82, 113, 255) 0%, rgb(17, 24, 55) 94%);
@@ -38,22 +41,20 @@ ion-content {
 
 .container {
   height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
 
-  -webkit-animation: puff-in-center 0.6s ease-in 1 normal none;
-  animation: puff-in-center 0.6s ease-in 1 normal none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 750 !important;
+  text-transform: uppercase;
+  color: #b2b5af !important;
 
-  ion-row {
-    height: 33%;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    font-family: Bahnschrift condensed !important;
-    font-weight: 750 !important;
-    text-transform: uppercase;
-    color: #b2b5af !important;
+  -webkit-animation: puff-out-center 0.6s ease-out 1.5s 1 normal none;
+  animation: puff-out-center 0.6s ease-out 1.5s 1 normal none;
 
-    img {
-      width: 150px;
-    }
+  img {
+    width: 45%;
   }
 }
