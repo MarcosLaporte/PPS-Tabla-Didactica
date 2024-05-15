@@ -14,10 +14,10 @@
       </div>
 
       <form #loginForm="ngForm">
-      <ion-button (click)="quickFill()" style="align-self: center;">
-        <ion-icon slot="start" name="people-circle-outline"></ion-icon>
-        Acceso rápido
-      </ion-button>
+        <ion-button (click)="quickFill()" style="align-self: center;">
+          <ion-icon slot="start" name="people-circle-outline"></ion-icon>
+          Acceso rápido
+        </ion-button>
         <ion-button expand="block" [disabled]="!loginForm.valid" color="warning" (click)="login()">
           Ingresar
         </ion-button>
@@ -35,6 +35,8 @@
         </ion-item>
       </form>
     </ion-card-content>
-    <img src="../../assets/login.png" width="100%">
+    <div class="img-cont" style="display: flex; justify-content: center;">
+      <img src="../../assets/login.png" width="70%">
+    </div>
   </ion-card>
 </div>
