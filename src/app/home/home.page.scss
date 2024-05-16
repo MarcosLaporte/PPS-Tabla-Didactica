@@ -2,35 +2,105 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
 
-  ion-card-content {
-    font-size: 5vw;
-  }
-  ion-card-title {
-    font-size: 7.5vw;
+  .settings {
+    img[role=button] {
+      border-radius: 50%;
+    }
+
+    .topics {
+      img[role=button] {
+        max-width: 105px;
+      }
+    }
+
+    .langs {
+      img[role=button] {
+        max-width: 83px;
+      }
+    }
   }
 
-  .options {
-    height: 100%;
-    padding: 20px;
-    display: flex;
+  @media (orientation: portrait) {
     flex-direction: column;
+    justify-content: flex-start;
 
-    ion-button {
-      flex: 1;
+    .settings {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      .button-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      .topics {
+        img[role=button] {
+          width: 25vw;
+        }
+      }
 
-        span {
-          margin-top: 25px;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          font-size: xxx-large;
+      .langs {
+        img[role=button] {
+          width: 20vw;
         }
       }
     }
+
+    .cards {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .card {
+        width: 40%;
+      }
+    }
+  }
+
+  @media (orientation: landscape) {
+    justify-content: flex-start;
+
+    .settings {
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      .topics {
+        display: flex;
+        flex-direction: column;
+
+        img[role=button] {
+          width: 25vh;
+        }
+      }
+
+      .langs {
+        display: flex;
+        flex-direction: column;
+
+        img[role=button] {
+          width: 20vh;
+        }
+      }
+    }
+
+    .cards {
+      width: 90%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .card {
+        width: 22.5%;
+      }
+    }
+  }
+
+  .cards .card.active {
+    z-index: 1000;
+    filter: brightness(105%);
+    transform: scale(1.25);
+    transition: all 1s;
+    -webkit-box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.75);
   }
 }

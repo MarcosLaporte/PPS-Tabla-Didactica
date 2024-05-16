@@ -1,25 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Idiomas</ion-title>
-    <ion-buttons *ngIf="userInSession" slot="primary">
-      <ion-button fill="outline" (click)="signOut()"> Cerrar sesión </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<div class="bg-img" style="height: 100%;">
-  <div class="container">
-    <ng-container *ngIf="userInSession; else noUser">
-      To continue...
-    </ng-container>
-    <ng-template #noUser>
-      <ion-card style="align-content: center;" class="ion-padding ion-margin">
-        <ion-card-content class="ion-no-padding">Si quiere jugar, debe iniciar sesión.</ion-card-content>
-        <ion-button expand="block" size="large" color="warning" (click)="navCtrl.navigateBack('/login')">
-          Ingrese a su cuenta</ion-button>
-        <ion-card-title>No se ha iniciado sesión</ion-card-title>
-      </ion-card>
-    </ng-template>
+<div class="container bg-img" style="height: 100%;">
+  <div class="settings ion-margin">
+    <div class="topics ion-no-padding">
+      <img src="../../assets/topics/colors.png" [style]="getTopicBorder('colors')"
+      role="button" (click)="chooseTopic('colors')">
+      <img src="../../assets/topics/animals.png" [style]="getTopicBorder('animals')"
+      role="button" (click)="chooseTopic('animals')">
+      <img src="../../assets/topics/numbers.png" [style]="getTopicBorder('numbers')"
+      role="button" (click)="chooseTopic('numbers')">
+    </div>
+    <div class="langs ion-no-padding">
+      <img src="../../assets/flags/argentina.png" [style]="getLangBorder('es')"
+      role="button" (click)="this.chosenLang = 'es'">
+      <img src="../../assets/flags/united-kingdom.png" [style]="getLangBorder('en')"
+      role="button" (click)="this.chosenLang = 'en'">
+      <img src="../../assets/flags/brazil.png" [style]="getLangBorder('pt')"
+      role="button" (click)="this.chosenLang = 'pt'">
+    </div>
   </div>
-
+    
+  <div class="cards" *ngIf="chosenTopic">
+    <ion-button class="card ion-margin-bottom" [id]="card" *ngFor="let card of cardsToShow"
+      (click)="pressCard(card)" [disabled]="!chosenLang">
+      <img [src]="'../../assets/cards/' + chosenTopic + '/' + card + '.png'">
+    </ion-button>
+  </div>
 </div>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="start">
+  <ion-fab-button shape="round" color="success" (click)="signOut()">
+    <ion-icon name="log-out-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
