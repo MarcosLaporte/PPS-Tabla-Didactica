@@ -72,8 +72,8 @@ export class HomePage implements OnInit {
 
   }
 
-  readonly getTopicBorder = (topic: Topic) => topic === this.chosenTopic ? 'border: 5px solid green;' : 'border: none;';
-  readonly getLangBorder = (lang: Language) => lang === this.chosenLang ? 'border: 5px solid green;' : 'border: none;';
+  readonly getTopicImage = (): string => this.chosenTopic ? `topics/${this.chosenTopic}` : 'topics';
+  readonly getLangImage = (): string => this.chosenLang ? `flags/${this.chosenLang}` : 'languages';
 
   showingCard: boolean = false;
   async pressCard(pressedCard: string) {
