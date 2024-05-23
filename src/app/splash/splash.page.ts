@@ -13,13 +13,13 @@ export class SplashPage {
     setTimeout(() => {
       const audio = new Audio('../../assets/sounds/correct.mp3');
       audio.play();
-    }, 900);
+    }, 2400);
 
     const redirRoute = auth.UserInSession ? '/home' : '/login';
     setTimeout(() => {
       navCtrl.navigateRoot(redirRoute);
       history.pushState(null, '');
-    }, 2100);
+    }, 3600);
   }
 
 }

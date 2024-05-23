@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">PPS-PP-App2</string>
-    <string name="title_activity_main">PPS-PP-App2</string>
+    <string name="app_name">Tabla de Idiomas</string>
+    <string name="title_activity_main">Tabla de Idiomas</string>
     <string name="package_name">com.pp2.app</string>
     <string name="custom_url_scheme">com.pp2.app</string>
 </resources>

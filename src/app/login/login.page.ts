@@ -11,7 +11,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  protected signupPage = SignupPage
 
   email: string = "";
   password: string = "";
@@ -30,7 +29,7 @@ export class LoginPage {
       this.email = "";
       this.password = "";
       this.spinner.hide();
-      ToastSuccess.fire('Operación realizada con éxito.')
+      ToastSuccess.fire('Operación realizada con éxito.');
       this.navCtrl.navigateBack('/home')
     } catch (error: any) {
       this.spinner.hide();

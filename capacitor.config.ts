@@ -2,13 +2,13 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.pp2.app',
-  appName: 'PPS-PP-App2',
+  appName: 'Tabla de Idiomas',
   webDir: 'www',
   plugins: {
     SplashScreen: {
       launchAutoHide: true,
-      launchFadeOutDuration: 500,
-      launchShowDuration: 1000,
+      launchShowDuration: 2000,
+      launchFadeOutDuration: 2000,
       splashFullScreen: false
     }
   }
