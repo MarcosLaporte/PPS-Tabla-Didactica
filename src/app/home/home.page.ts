@@ -27,9 +27,9 @@ declare interface TopicsCards {
 
 export class HomePage implements OnInit {
   protected userInSession: User | null;
-  chosenTopic: Topic | undefined;
-  chosenLang: Language | undefined;
-  cardsToShow: string[] = [];
+  chosenTopic: Topic = 'animals';
+  chosenLang: Language = 'es';
+  cardsToShow: string[] = animals;
 
   constructor(public auth: AuthService, protected navCtrl: NavController, private storage: StorageService, private spinner: NgxSpinnerService) {
     this.userInSession = auth.UserInSession;
@@ -40,18 +40,19 @@ export class HomePage implements OnInit {
     this.auth.userInSessionObs.subscribe((user) => this.userInSession = user);
 
     this.spinner.show();
+    await this.getImages();
+    this.spinner.hide();
+  }
+
+  private async getImages() {
     const topics: Topic[] = ['colors', 'animals', 'numbers']
     for (const topic of topics) {
-      this.storage.getAllFiles('audio/' + topic)
-        .then(async (res) => {
-          for (const item of res.items) {
-            const downloadUrl = await this.storage.getFileDownloadUrl(item.fullPath);
-            this.cardsItems[topic].push({ item: item.name, url: downloadUrl });
-          }
-        });
+      const list = await this.storage.getAllFiles('audio/' + topic);
+      for (const item of list.items) {
+        this.storage.getFileDownloadUrl(item.fullPath)
+          .then((url) => this.cardsItems[topic].push({ item: item.name, url: url }));
+      }
     }
-    this.spinner.hide();
-
   }
 
   chooseTopic(topic: Topic) {
@@ -75,17 +76,17 @@ export class HomePage implements OnInit {
   readonly getTopicImage = (): string => this.chosenTopic ? `topics/${this.chosenTopic}` : 'topics';
   readonly getLangImage = (): string => this.chosenLang ? `flags/${this.chosenLang}` : 'languages';
 
-  showingCard: boolean = false;
+  isShowingCard: boolean = false;
   async pressCard(pressedCard: string) {
-    if (this.showingCard) return
-    this.showingCard = true;
+    if (this.isShowingCard) return;
+    this.isShowingCard = true;
 
     const cardEls = this.cardsToShow
       .filter((card) => card !== pressedCard)
       .map((card) => document.getElementById(card));
     this.disableCards(cardEls, true);
 
-    const cardItem: Card = this.cardsItems[this.chosenTopic!]
+    const cardItem: Card = this.cardsItems[this.chosenTopic]
       .filter((card) => card.item === `${pressedCard}-${this.chosenLang}`)[0];
     const audio = new Audio(cardItem.url);
     const pressedEl = document.getElementById(pressedCard)!;
@@ -97,7 +98,7 @@ export class HomePage implements OnInit {
     pressedEl.classList.remove('active');
     this.disableCards(cardEls, false);
 
-    this.showingCard = false;
+    this.isShowingCard = false;
   }
 
   private disableCards(cardsEl: any[], value: boolean) {
