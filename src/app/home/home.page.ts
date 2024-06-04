@@ -87,7 +87,7 @@ export class HomePage implements OnInit {
     this.disableCards(cardEls, true);
 
     const cardItem: Card = this.cardsItems[this.chosenTopic]
-      .filter((card) => card.item === `${pressedCard}-${this.chosenLang}`)[0];
+      .filter((card) => card.item === `${pressedCard}-${this.chosenLang}.mp3`)[0];
     const audio = new Audio(cardItem.url);
     const pressedEl = document.getElementById(pressedCard)!;
     pressedEl.classList.add('active');

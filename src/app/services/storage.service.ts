@@ -12,9 +12,8 @@ export class StorageService {
     
 		try {
       await uploadBytes(fileRef, file);
+
 			return await getDownloadURL(fileRef);
-      console.log();
-      
 		} catch (error) {
 			throw Error('Hubo un problema al subir el archivo.');
 		}
